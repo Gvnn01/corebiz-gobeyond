@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Services\VtexSearchService;
-use Illuminate\Http\Request;
 
 class ServicesAPIVtexController extends Controller
 {
@@ -17,7 +16,7 @@ class ServicesAPIVtexController extends Controller
 
     public function listagemSearchVtex()
     {
-        return $this->endpointSearch->searchServiceVtex('https://loja.chillibeans.com.br/api/catalog_system/pub/products/search?Rayban');
+        return $this->endpointSearch->searchServiceVtex(env('URL'));
     }
 
 }

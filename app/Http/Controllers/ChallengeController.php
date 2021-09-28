@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Traits\ChallengeT;
-use Illuminate\Http\Request;
 
 class ChallengeController extends Controller
 {
@@ -11,7 +10,7 @@ class ChallengeController extends Controller
 
     public function challengeCorebiz()
     {
-        $result = $this->CreateDataChallenge('https://loja.chillibeans.com.br/api/catalog_system/pub/products/search?Rayban');
+        $result = $this->CreateDataChallenge(env('URL'));
         return Response($result, $result['status']);
     }
 }
