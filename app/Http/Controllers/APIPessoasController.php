@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Traits\PessoasTrait;
+use App\Traits\PessoasT;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Redis;
+
 class APIPessoasController extends Controller
 {
-
-    use PessoasTrait;
+    use PessoasT;
 
     protected $list = [];
-
     //* Route de GET Listagem
     public function listagemDePessoas(Request $request)
     {
@@ -20,16 +19,14 @@ class APIPessoasController extends Controller
         $result = $this->ListagemDePessoasTrait($request);
         return Response($result, $result['status']);
     }
-
-     //* Route de GET Listagem By Id
-     public function listagemDePessoasById(int $id)
-     {
-         //? Método refatorado para a Trait PessoasTrait.
-         $result = $this->ListagemDePessoasByIdTrait($id);
-         return Response($result, $result['status']);
-     }
-
-    //* Route de POST Cadasrtro
+    //* Route de GET Listagem By Id
+    public function listagemDePessoasById(int $id)
+    {
+        //? Método refatorado para a Trait PessoasTrait.
+        $result = $this->ListagemDePessoasByIdTrait($id);
+        return Response($result, $result['status']);
+    }
+    //* Route de POST Cadastro
     public function cadastraPessoa(Request $request)
     {
         //? Método refatorado para a Trait PessoasTrait.
@@ -56,14 +53,9 @@ class APIPessoasController extends Controller
     public function test()
     {
         $uid = uniqid();
-
-        Redis::set($uid, "Leonardo");
-
+        Redis::set($uid, 'Giovanni');
         $expiresAt = now()->addMinutes(1);
-
-        Cache::put($uid, "Leonardo", $expiresAt);
-
+        Cache::put($uid, 'Giovanni', $expiresAt);
         return Redis::get($uid);
     }
-
 }

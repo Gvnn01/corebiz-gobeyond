@@ -10,6 +10,7 @@ class ListagemPessoasResource extends JsonResource
      * Transform the resource into an array.
      *
      * @param  \Illuminate\Http\Request  $request
+     *
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
     public function toArray($request)
@@ -18,7 +19,7 @@ class ListagemPessoasResource extends JsonResource
             'id' => $this['id'],
             'name' => strtoupper($this['nome']),
             'age' => $this['idade'],
-            'email' => $this['email']
+            'email' => $this['email'],
         ];
     }
 }

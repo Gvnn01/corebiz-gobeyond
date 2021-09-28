@@ -2,13 +2,12 @@
 
 namespace App\Console\Commands;
 
-use App\Traits\PessoasTrait;
+use App\Traits\PessoasT;
 use Illuminate\Console\Command;
 
 class CleanTablePessoaCommand extends Command
 {
-
-    use PessoasTrait;
+    use PessoasT;
 
     /**
      * The name and signature of the console command.
@@ -33,7 +32,6 @@ class CleanTablePessoaCommand extends Command
     {
         parent::__construct();
     }
-
     /**
      * Execute the console command.
      *

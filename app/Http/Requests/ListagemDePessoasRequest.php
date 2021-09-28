@@ -27,7 +27,7 @@ class ListagemDePessoasRequest extends FormRequest
             'nome' => 'required|string|max:100',
             'idade' => 'required|int|max:120|min:1',
             'cep' => 'required|string|max:8',
-            'email' => 'required|email'
+            'email' => 'required|email',
         ];
     }
 }

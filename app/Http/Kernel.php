@@ -44,6 +44,10 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\AuthenticationMiddleware::class,
         ],
 
+        //? Middleware para o cache
+        'cache-challenge' => [
+            \App\Http\Middleware\CacheMiddleware::class,
+        ],
         'api' => [
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'throttle:api',

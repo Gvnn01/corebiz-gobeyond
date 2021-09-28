@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class ServicesAPIVtexController extends Controller
 {
-
     protected $endpointSearch;
 
     public function __construct()
@@ -16,13 +15,9 @@ class ServicesAPIVtexController extends Controller
         $this->endpointSearch = new VtexSearchService();
     }
 
-
     public function listagemSearchVtex()
     {
-
-        $result = $this->endpointSearch->searchServiceVtex("https://loja.chillibeans.com.br/api/catalog_system/pub/products/search?Rayban");
-
-        return $result;
+        return $this->endpointSearch->searchServiceVtex('https://loja.chillibeans.com.br/api/catalog_system/pub/products/search?Rayban');
     }
 
 }
