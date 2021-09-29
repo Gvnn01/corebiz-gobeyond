@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redis;
 
-class CacheMiddleware
+class ChallengeMiddleware
 {
     use RedisService;
     /**
@@ -22,8 +22,8 @@ class CacheMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        $cache = $this->getCacheById('challenge');
-        if (isset($cache)) {
+        $cache = $this->getCacheById('_challenge');
+        if (!isset($cache)) {
             return $next($request);
         } else {
             if (is_array($cache)) {

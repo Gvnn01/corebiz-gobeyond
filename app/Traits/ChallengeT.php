@@ -33,7 +33,7 @@ trait ChallengeT
                 'brand' => $filteredData->brand,
             ]);
             $arrayData = Challenge::all()->toArray();
-            $this->setCacheTrait(json_encode($arrayData), 'challenge', now()->addMinutes(1));
+            $this->setCacheTrait(json_encode($arrayData), '_challenge', now()->addMinutes(1));
         } catch (\Exception $e) {
             return [
                 'status' => 500,
